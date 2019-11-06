@@ -9,7 +9,7 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Teachers';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php
 $mysqli = new mysqli("localhost", "root", "", "examination");
@@ -62,7 +62,7 @@ if (isset($_POST["import"])) {
 
 <div class="teacher-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
     <p>
         <?= Html::a('Add Teacher', ['create'], ['class' => 'btn btn-success']) ?>
@@ -74,16 +74,13 @@ if (isset($_POST["import"])) {
         <form action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>" />
             <label>Choose Excel
-                File</label> <input type="file" name="file" id="file">
+                File</label> <input type="file" name="file" id="file"><br>
             <button type="submit" id="submit" name="import" class="btn-submit">Import</button>
         </form>
+        <br>
 
     </div>
-    <div id="response" class="<?php if (!empty($type)) {
-                                    echo $type . " display-block";
-                                } ?>"><?php if (!empty($message)) {
-                                            echo $message;
-                                        } ?></div>
+    
 
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
@@ -95,7 +92,7 @@ if (isset($_POST["import"])) {
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            't_id',
+            //'t_id',
             't_name',
 
             ['class' => 'yii\grid\ActionColumn'],

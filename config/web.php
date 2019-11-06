@@ -47,6 +47,21 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yidas\yii2\adminlte\plugins\iCheckAsset' => [
+                    'skin' => 'flat/aero',
+                ],
+            ],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                   '@app/views' => '@vendor/yidas/yii2-adminlte/templates/example'
+                ],
+            ],
+        ],
+        
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
